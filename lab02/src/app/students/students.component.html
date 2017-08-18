@@ -1,17 +1,21 @@
-<ul>
-		<div *ngFor="let student of students">
-		<li [class.featured]="student.featured">
-			<h2>{{student.studentId }}</h2>
-			<p class="student-name"> {{student. name | uppercase}} {{student.surname}}</p>			
-			<p *ngIf="student.gpa > 2.5">Good Student who get grade {{student.gpa | number:'1.2-2'}}</p>
-			<p *ngIf="student.gpa <= 2.5">Bad Student who get grade {{student.gpa  | number:'1.2-2'}}</p>
-			<p *ngIf="student.gpa<1.5">{{student.statue}}</p>
-			<div>
-				<img [title]="student.name" [src]="student.image">
-			</div>
-		</li>
-		
+
+<div *ngFor="let student of students" class="row">
+	<div class="pahel panel-primary col-md-offset-2 col-md-6">
+		<div class="pahel-heading">
+			<h2 class="pahel-title">{{student.studentId }}</h2>
 		</div>
-	</ul>
-	
-	<p class="grade"> The average gpa is {{averageGpa()}} </p>
+		<div class="pahel-body row">
+			<div class="col-md-6">
+				<p class="student-name"> {{student. name | uppercase}} {{student.surname}}</p>			
+				<p *ngIf="student.gpa > 2.5">Good Student who get grade {{student.gpa | number:'1.2-2'}}</p>
+				<p *ngIf="student.gpa <= 2.5">Bad Student who get grade {{student.gpa  | number:'1.2-2'}}</p>
+				<p *ngIf="student.gpa<1.5">{{student.statue}}</p>
+				<div>
+					<img [title]="student.name" [src]="student.image">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="alert alert-success col-md-offset-2 col-md-6"> The average gpa is {{averageGpa()}}</div> 
