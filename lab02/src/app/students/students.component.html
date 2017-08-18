@@ -1,0 +1,17 @@
+<ul>
+		<div *ngFor="let student of students">
+		<li [class.featured]="student.featured">
+			<h2>{{student.studentId }}</h2>
+			<p class="student-name"> {{student. name | uppercase}} {{student.surname}}</p>			
+			<p *ngIf="student.gpa > 2.5">Good Student who get grade {{student.gpa | number:'1.2-2'}}</p>
+			<p *ngIf="student.gpa <= 2.5">Bad Student who get grade {{student.gpa  | number:'1.2-2'}}</p>
+			<p *ngIf="student.gpa<1.5">{{student.statue}}</p>
+			<div>
+				<img [title]="student.name" [src]="student.image">
+			</div>
+		</li>
+		
+		</div>
+	</ul>
+	
+	<p class="grade"> The average gpa is {{averageGpa()}} </p>
